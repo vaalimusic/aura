@@ -1,0 +1,21 @@
+[workspace]
+members = ["apps/desktop", "apps/node", "crates/aura-core", "crates/aura-ui", "crates/aura-audio", "crates/aura-network", "crates/aura-mesh", "crates/aura-social", "crates/aura-media", "everty-ui"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[workspace.dependencies]
+aura-core = { path = "crates/aura-core" }
+aura-ui = { path = "crates/aura-ui" }
+everty-ui = { path = "everty-ui" }
+aura-audio = { path = "crates/aura-audio" }
+aura-network = { path = "crates/aura-network" }
+aura-mesh = { path = "crates/aura-mesh" }
+aura-social = { path = "crates/aura-social" }
+aura-media = { path = "crates/aura-media" }
+
+[profile.release]
+lto = "thin"
+strip = true

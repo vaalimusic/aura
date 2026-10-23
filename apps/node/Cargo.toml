@@ -1,0 +1,8 @@
+[package]
+name = "aura-node"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+aura-mesh.workspace = true
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal"] }

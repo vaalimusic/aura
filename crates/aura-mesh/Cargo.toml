@@ -1,0 +1,24 @@
+[package]
+name = "aura-mesh"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+libp2p = { version = "0.57", default-features = false, features = ["tokio", "tcp", "dns", "noise", "yamux", "relay", "identify", "ping", "macros", "ed25519", "dcutr", "kad"] }
+libp2p-stream = "=0.5.0-alpha"
+futures = "0.3"
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros", "signal"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+getrandom = "0.3"
+subtle = "2"
+aura-social.workspace = true
+aura-media.workspace = true
+tempfile = "3"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows = { version = "0.62", features = ["Win32_Security_Cryptography", "Win32_System_Memory", "Win32_Foundation"] }
+
+[dev-dependencies]
+aura-audio.workspace = true

@@ -1,0 +1,19 @@
+[package]
+name = "aura-network"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+aura-media.workspace = true
+quinn = { version = "0.11", default-features = false, features = ["runtime-tokio", "rustls-ring"] }
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros", "net"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+rcgen = "0.14"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+getrandom = "0.3"
+subtle = "2"
+
+[dev-dependencies]
+aura-audio.workspace = true

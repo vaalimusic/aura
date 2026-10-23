@@ -1,0 +1,9 @@
+[package]
+name = "aura-ui"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+aura-social.workspace = true
+aura-core.workspace = true
+everty-ui.workspace = true

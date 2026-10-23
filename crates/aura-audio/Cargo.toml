@@ -1,0 +1,13 @@
+[package]
+name = "aura-audio"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+opus = "0.4"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+wasapi = "0.26"
+sysinfo = { version = "0.37", default-features = false, features = ["system"] }
+windows = { version = "0.62", features = ["Win32_Media_Audio"] }
+windows-core = "0.62"

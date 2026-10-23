@@ -1,0 +1,33 @@
+services:
+  aura-node:
+    image: aura-node:local
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: unless-stopped
+    init: true
+    environment:
+      AURA_NODE_KEY: /var/lib/aura-node/identity.key
+      AURA_NODE_LISTEN: /ip4/0.0.0.0/tcp/45071
+      AURA_NODE_ADVERTISE: ${AURA_NODE_ADVERTISE:?Set the public multiaddr without PeerId}
+    ports:
+      - "${AURA_NODE_PORT:-45071}:45071/tcp"
+    volumes:
+      - node-identity:/var/lib/aura-node
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 4096
+    stop_grace_period: 10s
+volumes:
+  node-identity:

@@ -1,0 +1,23 @@
+# Local planning material (public documentation lives in docs/)
+/[dD][oO][cC]/
+
+# Rust build output, including the bundled EvertyUI
+**/target/
+**/*.rs.bk
+# The workspace root lockfile is authoritative
+/everty-ui/Cargo.lock
+
+# Local credentials and machine settings
+.env
+.env.*
+!.env.example
+/.aura/
+*.log
+*.pdb
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated prototype previews
+/artifacts/

@@ -1,0 +1,11 @@
+**/target
+**/.git
+artifacts
+doc
+Doc
+.aura
+.env
+.env.*
+**/*.key
+**/*.log
+**/*.pdb

@@ -1,0 +1,30 @@
+[package]
+name = "aura-desktop"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+aura-core.workspace = true
+aura-ui.workspace = true
+everty-ui.workspace = true
+aura-audio.workspace = true
+aura-network.workspace = true
+aura-mesh.workspace = true
+aura-social.workspace = true
+aura-media.workspace = true
+tokio = { version = "1", features = ["rt-multi-thread", "sync", "time", "macros"] }
+arboard = { version = "3", default-features = false }
+winit = "0.30"
+softbuffer = "0.4"
+png = "0.17"
+tempfile = "3"
+serde_json = "1"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+tray-icon = "0.21"
+sysinfo = { version = "0.37", default-features = false, features = ["system"] }
+windows = { version = "0.62", features = ["Media_Control", "Foundation", "Foundation_Collections", "Storage_Streams", "ApplicationModel_DataTransfer", "Win32_System_WinRT", "Win32_System_Threading", "Win32_Storage_Packaging_Appx", "Win32_UI_Shell"] }
+
+[dev-dependencies]
+futures = "0.3"
+libp2p = { version = "0.57", default-features = false }
